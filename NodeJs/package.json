@@ -1,0 +1,23 @@
+{
+  "name": "datagrid",
+  "version": "1.0.0",
+  "description": "Display data in grid",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Data",
+    "Grid",
+    "NodeJs",
+    "Angular",
+    "JS"
+  ],
+  "author": "Sunny Singh",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "express": "^4.15.3"
+  }
+}
