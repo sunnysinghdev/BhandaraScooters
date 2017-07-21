@@ -1,13 +1,4 @@
 [{
-        "__type": "CsvToJson.MotorPart, CsvToJson",
-        "ID": "ITEMID",
-        "Name": "ITEMNAME",
-        "BrandName": "VEHICLETYPE",
-        "VehicleType": "ITEMBRAND",
-        "Price": "LISTPRICE",
-        "Discount": "DISCOUNT"
-    },
-    {
         "ID": "STD-5100",
         "Name": "CHAIN SPROCKET SET ",
         "BrandName": "HH/SS",
