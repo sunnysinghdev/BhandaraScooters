@@ -1,2 +1,4 @@
 # Directory node_modules
 node_modules
+# Directory for vs Code
+.vscode
