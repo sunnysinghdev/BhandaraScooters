@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Print
+    </title>
+    <style>
+        body {
+            font-family: SimSun, serif;
+            font-size: 10px;
+        }
+        
+        .main {
+            border: 1px solid black;
+            width: 300px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            text-align: center;
+            height: 50px;
+            padding: 0;
+            background-color: lightpink;
+        }
+        
+        .detail {
+            height: 30px;
+            background-color: lightslategray;
+        }
+        
+        .list {
+            height: auto;
+            background-color: white;
+        }
+        
+        table {
+            display: inline-block;
+            width: 100%;
+            border: 1px solid black;
+        }
+        
+        th {
+            color: white;
+            background-color: darkblue;
+        }
+        
+        td:nth-child(3) {
+            text-align: right;
+        }
+        
+        td:nth-child(1) {
+            text-align: right;
+            padding-right: 4px;
+        }
+        
+        tr:nth-child(even) {
+            background: #ededed;
+        }
+        
+        .h1 {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">
+            <span class="h1">Epicor Inventory</span>
+        </div>
+        <div class="detail">
+            <span class="h3">This will print the html</span>
+        </div>
+        <div id="orderarea" class="list">
+            <table id="order">
+                <th>Id</th>
+                <th>Procduct</th>
+                <th>Price</th>
+            </table>
+            <hr>
+
+        </div>
+    </div>
+</body>
+<script>
+    var orderList = [{
+        "id": "1",
+        "product": "product1",
+        "price": "10.30",
+    }, {
+        "id": "2",
+        "product": "product2",
+        "price": "20.30",
+    }, {
+        "id": "3",
+        "product": "product3",
+        "price": "30.30",
+    }, {
+        "id": "4",
+        "product": "product4",
+        "price": "40.30",
+    }, {
+        "id": "5",
+        "product": "product5",
+        "price": "30.30",
+    }, ];
+
+    function handler() {
+        if (this.status == 200) {
+            // success!
+            var x = this.response;
+            var x1 = JSON.parse(x);
+            processData(x1);
+        } else {
+            // something went wrong
+
+        }
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.onload = handler;
+    xhr.open('GET', 'http://github.sunnysinghdev.com/BhandaraScooters/WebAngular/inv_parts.json', false);
+    xhr.send();
+    // var rs = xhr.response;
+    //http://github.sunnysinghdev.com/BhandaraScooters/WebAngular/inv_parts.json
+    function processData(orderList) {
+        var table = document.getElementById('order');
+        var amount = 0.00;
+        for (var i = 0; i < 30; i++) {
+            var tr = document.createElement('tr');
+
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+
+            var text1 = document.createTextNode(orderList[i].ID);
+            var text2 = document.createTextNode(orderList[i].Name);
+            var pri = parseFloat(orderList[i].Price).toFixed(2);
+            amount = Number(amount) + Number(pri);
+            var text3 = document.createTextNode(parseFloat(orderList[i].Price).toFixed(2));
+
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            td3.appendChild(text3);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+
+            table.appendChild(tr);
+        }
+        tr = document.createElement('tr');
+
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        td1.colSpan = "2";
+        td1.style.textAlign = "right";
+        var text1 = document.createTextNode('Total Rs = ');
+
+        var text2 = document.createTextNode(amount);
+
+        td1.appendChild(text1);
+        td2.appendChild(text2);
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        table.appendChild(tr);
+
+        document.getElementById('orderarea').appendChild(table);
+        //document.getElementById('total').textContent = "Total = Rs " + amount;
+    }
+</script>
+
+</html>
