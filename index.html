@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bhandara Scooters</title>
+</head>
+<script>
+    var apiEndPointUrl = 'http://localhost:8080'; //https://safe-temple-99953.herokuapp.com';
+
+    function loginHandler() {
+        if (this.status == 200) {
+            alert("status 200");
+        } else {
+            alert('Debug Require');
+        }
+    }
+
+    function authenticateUser() {
+        var user = document.getElementById('login_userName').value;
+        var pass = document.getElementById('login_userPassword').value;
+        var loginUrl = apiEndPointUrl + '/login?' + 'user=' + user + '&pass=' + pass;
+
+        var xhr = new XMLHttpRequest();
+        xhr.onload = loginHandler;
+        xhr.open('GET', loginUrl);
+        xhr.send();
+    }
+</script>
+
+<body>
+    <div>
+        <h2>Bhandara Scooters</h2>
+        <h4> A Inventory Management web app create by suunysinghdev.com</h4>
+        <p>
+            Please login to proceed
+        </p>
+        <hr>
+        <p> User Name : <input id="login_userName" type="textbox" />
+            <p> Password : <input id="login_userPassword" type="textbox" />
+                <button id="login_submit" onclick="authenticateUser()">Login</button>
+    </div>
+</body>
+
+</html>
