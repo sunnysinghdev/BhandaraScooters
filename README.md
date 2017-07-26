@@ -30,3 +30,12 @@ Commit it:
 git commit -m ".gitignore is now working"
 ```
 Cheers!!
+
+var loginUrl = apiEndPointUrl + '/bhandara/db/insert';
+        var xhr = new XMLHttpRequest();
+		//xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.onload = loginHandler;
+        xhr.open('POST', loginUrl);
+        xhr.setRequestHeader('Content-type', 'application/json');
+       // xhr.send();
+		xhr.send(JSON.stringify({items:['ar1','ar2','ar3'],amount:1300.54,custName:'ars'}));
