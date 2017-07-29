@@ -3,15 +3,20 @@
 
 <head>
     <title>Bhandara Scooters</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <script>
     var apiEndPointUrl = 'https://safe-temple-99953.herokuapp.com';
 
     function loginHandler() {
         if (this.status == 200) {
-            alert("status 200");
+            window.location.href = 'order.html';
         } else {
-            alert('Debug Require');
+            alert('Something went wrong!!');
         }
     }
 
@@ -28,16 +33,36 @@
 </script>
 
 <body>
-    <div>
-        <h2>Bhandara Scooters</h2>
-        <h4> A Inventory Management web app create by suunysinghdev.com</h4>
-        <p>
-            Please login to proceed
-        </p>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2>Bhandara Scooters</h2>
+            <h4> A Inventory Management web app create by suunysinghdev.com</h4>
+        </div>
         <hr>
-        <p> User Name : <input id="login_userName" type="textbox" />
-            <p> Password : <input id="login_userPassword" type="textbox" />
-                <button id="login_submit" onclick="authenticateUser()">Login</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3" style="border-left:2px solid lightblue;">
+                    <p>
+                        Please login to proceed
+                    </p>
+
+                    <div class="form-group">
+                        <label> User Name</label>
+                        <input id="login_userName" class="form-control" type="textbox" placeholder="User Name" />
+                    </div>
+                    <div class="form-group">
+                        <label> Password</label>
+                        <input id="login_userPassword" class="form-control" type="password" placeholder="Password" />
+                    </div>
+                    <div class="form-group">
+                        <button id="login_submit" type="submit" class="form-control btn btn-primary" onclick="authenticateUser()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 
