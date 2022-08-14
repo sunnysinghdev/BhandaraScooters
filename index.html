@@ -21,6 +21,7 @@
     }
 
     function authenticateUser() {
+                    window.location.href = 'order.html';
         var user = document.getElementById('login_userName').value;
         var pass = document.getElementById('login_userPassword').value;
         var loginUrl = apiEndPointUrl + '/login?' + 'user=' + user + '&pass=' + pass;
